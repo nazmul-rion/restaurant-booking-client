@@ -1,0 +1,13 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.getrestaurentbtn{
+
+  outline: none;
+  background-color: rgb(255, 68, 68);
+  color: white;
+}
+

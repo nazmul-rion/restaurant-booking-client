@@ -1,0 +1,26 @@
+
+.active{
+background-color: rgb(0, 136, 57);
+color: white;
+border: 0;
+
+}
+
+.deactive{
+    background-color: rgb(134, 134, 134);
+    color: white;
+    border: 0;
+
+}
+
+
+.blinker {
+    color: rgb(255, 67, 67);
+    animation: blinker 3s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0.50;
+    }
+  }
