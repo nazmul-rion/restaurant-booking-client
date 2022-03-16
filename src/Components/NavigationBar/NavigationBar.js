@@ -1,9 +1,14 @@
 import React from 'react'
 import './NavigationBar.css'
 import { Container, Nav, Navbar } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import cartIcon from '../../Assets/icons/cartIcon.svg'
+import useCart from '../../Context/CartManagement/useCart'
 
 function NavigationBar() {
+
+    const { cartState, cartDispatch } = useCart();
+    let navigate = useNavigate();
 
 
     return (
@@ -22,7 +27,7 @@ function NavigationBar() {
                     </NavLink>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto">
+                        <Nav className="ms-auto align-items-center">
 
 
                             <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/">Home</NavLink>
@@ -32,6 +37,10 @@ function NavigationBar() {
                             <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/tablebooking"><span className=' fw-bold blinker '>Live</span> Table Booking</NavLink>
 
                             <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/tabletracking"><span className=' fw-bold blinker '>Live</span> Table Tracking</NavLink>
+
+                            <span className='m-2 text-decoration-none' onClick={() => navigate('/tablebooking')}>
+                                <img width='25' src={cartIcon} alt="" /><sub className='fs-6 text-danger fw-bold'>{cartState.cartList.length}</sub>
+                            </span>
 
 
                         </Nav>

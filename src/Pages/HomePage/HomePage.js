@@ -1,8 +1,12 @@
 import React from 'react'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import searchIcon from '../../Assets/icons/searchIcon.svg'
 
 function HomePage() {
+
+    let navigate = useNavigate();
+
     return (
         <section className='container my-3'>
 
@@ -22,23 +26,26 @@ function HomePage() {
 
                 <h6 className='text-center my-3'>OR</h6>
 
-                <div className="d-flex justify-content-center align-items-center">
-                    <select className='mx-5 px-3 py-2 fs-5'>
+                <div className="d-flex justify-content-evenly align-items-center">
+                    <select className='mx-5  py-2 fs-5'>
+
                         <option value="None">Select City</option>
                         <option value="Dhaka">Dhaka</option>
                         <option value="Chittagong">Chittagong</option>
 
                     </select>
-                    <select className='mx-5 px-3 py-2 fs-5'>
+
+                    <select className='mx-5  py-2 fs-5'>
+
                         <option value="None">Select Zone</option>
-                        <option  >Action</option>
-                        <option  >Another action</option>
+                        <option value="Agrabad" >Agrabad</option>
+                        <option value="2 No Gate">2 No Gate</option>
 
                     </select>
                 </div>
 
                 <div className=' text-center my-3'>
-                    <button className="btn getrestaurentbtn">Get the Restaurent List</button>
+                    <button onClick={() => navigate('/menu')} className="btn getrestaurentbtn">Get the Restaurent List</button>
                 </div>
 
             </div>
@@ -46,7 +53,8 @@ function HomePage() {
 
 
 
-        </section>
+
+        </section >
     )
 }
 

@@ -11,3 +11,45 @@
   color: white;
 }
 
+.restaurentContainer{
+  background-color: rgb(250, 250, 187);
+  border: 2px solid rgb(250, 250, 187);
+  color: orangered;
+  padding: 1.2rem 1rem;
+  border-radius: 25px;
+}
+
+.restaurentContainer:hover{
+  border: 2px solid rgb(255, 165, 81);
+}
+
+.foodcategorybtn{
+  background-color: rgb(38, 139, 255);
+  color: white;
+  min-width: 6rem;
+  font-weight: bold;
+  margin: 0.5rem;
+}
+
+.foodCard{
+  background-color: rgb(224, 250, 173);
+  border: 2px solid rgb(224, 250, 173);
+  border-radius: 1rem;
+  width: 15rem;
+  overflow: hidden;
+}
+
+.foodCard:hover{
+  border: 2px solid rgb(0, 174, 255);
+}
+
+.foodCard img{
+  padding: .5rem;
+  border-top-left-radius:  1.5rem;
+  border-top-right-radius:  1.5rem;
+}
+
+.foodCard button{
+  background-color: rgb(83, 83, 83);
+  color: white;
+}
