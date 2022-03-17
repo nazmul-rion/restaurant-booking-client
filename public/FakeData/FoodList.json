@@ -1,0 +1,100 @@
+[
+    {
+        "_id": "F1",
+        "RestaurantID": "R1",
+        "FoodCategory": "Burger",
+        "FoodName": "Chicken Juicy Light Burger",
+        "Price": 171
+    },
+    {
+        "_id": "F2",
+        "RestaurantID": "R1",
+        "FoodCategory": "Burger",
+        "FoodName": "Spicy Signature Chicken Burger",
+        "Price": 180
+    },
+    {
+        "_id": "F3",
+        "RestaurantID": "R1",
+        "FoodCategory": "Burger",
+        "FoodName": "Cheesy BBQ Beef Burger",
+        "Price": 243
+    },
+    {
+        "_id": "F4",
+        "RestaurantID": "R1",
+        "FoodCategory": "Burger",
+        "FoodName": "Spicy Signature Beef Burger",
+        "Price": 234
+    },
+    {
+        "_id": "F5",
+        "RestaurantID": "R1",
+        "FoodCategory": "Chowmein",
+        "FoodName": "Vegetable Hakka Chowmein",
+        "Price": 207
+    },
+    {
+        "_id": "F6",
+        "RestaurantID": "R1",
+        "FoodCategory": "Chowmein",
+        "FoodName": "Spicy Hakka Chowmein",
+        "Price": 225
+    },
+    {
+        "_id": "F7",
+        "RestaurantID": "R1",
+        "FoodCategory": "Chowmein",
+        "FoodName": "Beef Hakka Chowmein",
+        "Price": 229
+    },
+    {
+        "_id": "F8",
+        "RestaurantID": "R1",
+        "FoodCategory": "Pasta",
+        "FoodName": "Sizzling Italian Pasta",
+        "Price": 270
+    },
+    {
+        "_id": "F9",
+        "RestaurantID": "R1",
+        "FoodCategory": "Pasta",
+        "FoodName": "Game Over Naga Pasta",
+        "Price": 216
+    },
+    {
+        "_id": "F10",
+        "RestaurantID": "R1",
+        "FoodCategory": "Pizza",
+        "FoodName": "Cheesy Layer Pizza",
+        "Price": 297
+    },
+    {
+        "_id": "F11",
+        "RestaurantID": "R1",
+        "FoodCategory": "Pizza",
+        "FoodName": "Fast & Furious Pizza",
+        "Price": 300
+    },
+    {
+        "_id": "F12",
+        "RestaurantID": "R1",
+        "FoodCategory": "Pizza",
+        "FoodName": "Beef & Chicken Flames Pizza",
+        "Price": 432
+    },
+    {
+        "_id": "F13",
+        "RestaurantID": "R1",
+        "FoodCategory": "Juice",
+        "FoodName": "Orange Lemonade",
+        "Price": 153
+    },
+    {
+        "_id": "F14",
+        "RestaurantID": "R1",
+        "FoodCategory": "Juice",
+        "FoodName": "Lemon Mint",
+        "Price": 135
+    }
+]

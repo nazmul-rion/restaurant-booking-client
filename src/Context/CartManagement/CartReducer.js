@@ -4,10 +4,11 @@ const addProductToCart = (state, item) => {
     const curItemIndex = copyCartList.findIndex((i) => i.itemId === item.itemId);
 
     if (curItemIndex < 0) {
-        copyCartList.push({ ...item, quantity: 1 });
+        copyCartList.push({ ...item, quantity: 1, ItemToalPrice: (item.itemPrice * 1) });
     } else {
         const copyItem = { ...copyCartList[curItemIndex] };
         copyItem.quantity++;
+        copyItem.ItemToalPrice = (copyItem.itemPrice * copyItem.quantity);
         copyCartList[curItemIndex] = copyItem;
     }
 
@@ -20,6 +21,7 @@ const decreaseQuantityFromCart = (state, itemId) => {
 
     const curItem = { ...copyCartList[curItemIndex] };
     curItem.quantity--;
+    curItem.ItemToalPrice = (curItem.itemPrice * curItem.quantity)
 
     if (curItem.quantity <= 0) {
         copyCartList.splice(curItemIndex, 1);
