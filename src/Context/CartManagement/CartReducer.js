@@ -1,5 +1,6 @@
 
-const addProductToCart = (state, item) => {
+const addProductToCart = (state, item, resId) => {
+    state.restaurentID = resId;
     const copyCartList = [...state.cartList];
     const curItemIndex = copyCartList.findIndex((i) => i.itemId === item.itemId);
 
@@ -52,7 +53,7 @@ export const CartReducer = (state, action) => {
 
     switch (action.type) {
         case "ADD_TO_CART":
-            return addProductToCart(state, action.item);
+            return addProductToCart(state, action.item, action.restaurentID);
         case "DECREASE_QUANTITY":
             return decreaseQuantityFromCart(state, action.itemId);
         case "REMOVE_FROM_CART":

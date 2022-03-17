@@ -53,3 +53,15 @@
   background-color: rgb(83, 83, 83);
   color: white;
 }
+
+.bkashbtn{
+  padding: .2rem 2rem;
+  color: white;
+  background-color: #e2136e;
+}
+
+.nagadbtn{
+  padding: .2rem 2rem;
+  color: white;
+  background-color: #ec1c24;
+}

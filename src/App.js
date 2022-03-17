@@ -4,6 +4,7 @@ import FooterPart from './Components/FooterPart/FooterPart';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 import CartProvider from './Context/CartManagement/CartProvider';
 import HomePage from './Pages/HomePage/HomePage';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import RestaurantDetails from './Pages/RestaurantDetails/RestaurantDetails';
 import RestaurantList from './Pages/RestaurantList/RestaurantList';
 import TableBookingPage from './Pages/TableBookingPage/TableBookingPage';
@@ -20,7 +21,8 @@ function App() {
           <Route path="/menu" element={<RestaurantList />} />
           <Route path="/menu/:restaurentID" element={<RestaurantDetails />} />
           <Route path="/tablebooking" element={<TableBookingPage />} />
-          <Route path="/tabletracking" element={<TableTrackingPage />} />
+          <Route path="/tabletracking/:restaurentID" element={<TableTrackingPage />} />
+          <Route path="*" element={<NotFoundPage />} />
 
         </Routes>
         <FooterPart />

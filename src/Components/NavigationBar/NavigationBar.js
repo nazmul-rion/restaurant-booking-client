@@ -36,7 +36,7 @@ function NavigationBar() {
 
                             <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/tablebooking"><span className=' fw-bold blinker '>Live</span> Table Booking</NavLink>
 
-                            <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/tabletracking"><span className=' fw-bold blinker '>Live</span> Table Tracking</NavLink>
+                            <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to={`/tabletracking/${cartState.restaurentID}`}><span className=' fw-bold blinker '>Live</span> Table Tracking</NavLink>
 
                             <span className='m-2 text-decoration-none' onClick={() => navigate('/tablebooking')}>
                                 <img width='25' src={cartIcon} alt="" /><sub className='fs-6 text-danger fw-bold'>{cartState.cartList.length}</sub>

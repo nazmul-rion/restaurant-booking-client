@@ -31,6 +31,7 @@ const RestaurantDetails = () => {
 
     const categoryHandle = (cat) => {
         setFoodCategory(cat);
+        console.log(cartState)
     }
 
 
@@ -89,7 +90,8 @@ const RestaurantDetails = () => {
                                             itemId: food._id,
                                             itemName: food.FoodName,
                                             itemPrice: food.Price,
-                                        }
+                                        },
+                                        restaurentID: restaurentID
                                     })}
                                 >Add to <span className=' fw-bold blinker '>Live</span> Table Booking</button>
                             </div>
