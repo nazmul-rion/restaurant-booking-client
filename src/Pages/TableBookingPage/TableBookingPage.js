@@ -129,7 +129,7 @@ const TableBookingPage = () => {
                         </div>
 
                         <div className='my-4'>
-                            <span><b>Selected Table:</b> <label className='px-5 py-1 text-light rounded bg-secondary'>RN20 (2 Person)</label> </span>
+                            <span><b>Selected Table:</b> <label className='px-5 py-1 text-light rounded bg-secondary'>{cartState.selectedTable}</label> </span>
                         </div>
 
                         <div className=' border border-info' />

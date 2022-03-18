@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate, useSearchParams } from 'react-router-dom'
 import locationIcon from '../../Assets/icons/locationIcon.svg'
 import RestaurantListApi from '../../Hooks/RestaurantListApi';
 
@@ -7,12 +7,17 @@ import RestaurantListApi from '../../Hooks/RestaurantListApi';
 const RestaurantList = () => {
 
     let navigate = useNavigate();
-    const [restaurantList, setRestaurantList] = RestaurantListApi();
+    const [searchParams] = useSearchParams();
+
+    const [restaurantList, setRestaurantList] = RestaurantListApi(Object.fromEntries([...searchParams]));
 
     return (
         <section className='container'>
 
-            <h3 className='my-4'>Click the Restaurent for Menu List</h3>
+            <div className="my-4 d-flex justify-content-between align-items-center"  >
+                <h3 className=''>Click the Restaurent for Menu List</h3>
+                <h5 className=''>Restaurant Found: {restaurantList.length}</h5>
+            </div>
 
             <div className="container-fluid">
                 {

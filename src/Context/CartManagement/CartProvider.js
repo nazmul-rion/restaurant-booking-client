@@ -7,7 +7,9 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
     const [cartState, cartDispatch] = useReducer(CartReducer, {
         cartList: [],
-        restaurentID: ""
+        restaurentID: "",
+        selectedTable: "",
+        tableName: ""
     });
 
     return (

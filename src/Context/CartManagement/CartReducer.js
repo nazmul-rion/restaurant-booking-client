@@ -47,11 +47,21 @@ const clearCart = (state) => {
     };
 };
 
+const addTableToCart = (state, tableID, tableName) => {
+    return {
+        ...state,
+        selectedTable: tableID,
+        tableName: tableName,
+    };
+};
+
 
 
 export const CartReducer = (state, action) => {
 
     switch (action.type) {
+        case "ADD_TABLE_TO_CART":
+            return addTableToCart(state, action.tableID, action.tableName);
         case "ADD_TO_CART":
             return addProductToCart(state, action.item, action.restaurentID);
         case "DECREASE_QUANTITY":

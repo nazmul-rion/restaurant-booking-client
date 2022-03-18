@@ -32,7 +32,7 @@ function NavigationBar() {
 
                             <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/">Home</NavLink>
 
-                            <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/menu">Menu</NavLink>
+                            <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/menu?searchInput=&&searchCity=&&searchZone=">Menu</NavLink>
 
                             <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/tablebooking"><span className=' fw-bold blinker '>Live</span> Table Booking</NavLink>
 

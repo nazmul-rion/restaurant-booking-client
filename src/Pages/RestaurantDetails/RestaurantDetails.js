@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import locationIcon from '../../Assets/icons/locationIcon.svg'
 import useCart from '../../Context/CartManagement/useCart';
+import FoodCategoryList from '../../Hooks/FoodCategoryList';
+import FoodListApi from '../../Hooks/FoodListApi';
+import SingleRestaurantApi from '../../Hooks/SingleRestaurantApi';
 
 const RestaurantDetails = () => {
 
@@ -9,29 +12,19 @@ const RestaurantDetails = () => {
 
     const { cartState, cartDispatch } = useCart();
 
-    const [foodList, setFoodList] = useState([]);
+    const [foodCategory, setFoodCategory] = useState("All");
 
-    const [foodCategory, setFoodCategory] = useState("");
+    const [Singlerestaurant, setSingleRestaurant] = SingleRestaurantApi(restaurentID);
 
-    useEffect(() => {
-        let isMounted = true;
-        fetch(`../FakeData/FoodList.json`)
-            .then(res => res.json())
-            .then(data => {
-                if (isMounted) {
-                    setFoodList(data);
-                }
-            });
-        return () => {
-            isMounted = false;
-        };
+    const [foodList, setFoodList] = FoodListApi(restaurentID, foodCategory);
 
-    }, [foodList, foodCategory]);
+    const [foodCategoryList, setFoodCategoryList] = FoodCategoryList(restaurentID);
+
+
 
 
     const categoryHandle = (cat) => {
         setFoodCategory(cat);
-        console.log(cartState)
     }
 
 
@@ -40,15 +33,15 @@ const RestaurantDetails = () => {
 
             <div className="d-flex flex-md-row flex-column justify-content-between align-items-center">
                 <div>
-                    <h4>Restaurent Name</h4>
+                    <h4>{Singlerestaurant.RestaurantName}</h4>
                     <h5>
                         <span><img width='20' src={locationIcon} alt="" /></span>
-                        <span> Zone Name , City Name</span>
+                        <span> {Singlerestaurant.Zone}, {Singlerestaurant.City}</span>
                     </h5>
                 </div>
 
                 <div>
-                    <h4><b>Owner:</b> Owner Name</h4>
+                    <h4><b>Owner:</b> {Singlerestaurant.OwnerName}</h4>
                 </div>
             </div>
 
@@ -58,12 +51,22 @@ const RestaurantDetails = () => {
             <div className=" my-3">
 
 
-                <button className="btn foodcategorybtn"
-                    onClick={() => categoryHandle("")}
+                <button className={foodCategory === "All" ? ` foodcategorybtn activecategory` : ` foodcategorybtn deactivecategory`}
+                    onClick={() => categoryHandle("All")}
                 >All</button>
-                <button className="btn foodcategorybtn"
-                    onClick={() => categoryHandle("Vegitable and Salad")}
-                >Vegitable and Salad</button>
+
+
+                {
+                    foodCategoryList.map(singleCategory => {
+                        return (
+                            <button key={singleCategory._id}
+                                className={foodCategory === singleCategory.FoodCategoryName ? ` foodcategorybtn activecategory` : ` foodcategorybtn deactivecategory`}
+                                onClick={() => categoryHandle(singleCategory.FoodCategoryName)}
+                            >{singleCategory.FoodCategoryName}</button>
+                        )
+                    })
+                }
+
 
 
 
