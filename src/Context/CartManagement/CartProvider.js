@@ -8,8 +8,7 @@ const CartProvider = ({ children }) => {
     const [cartState, cartDispatch] = useReducer(CartReducer, {
         cartList: [],
         restaurentID: "",
-        selectedTable: "",
-        tableName: ""
+        selectedTable: ""
     });
 
     return (

@@ -1,0 +1,72 @@
+.table-container{
+    border: 2px solid rgb(1, 119, 253);
+    padding: 0;
+    border-radius: 20px;
+  
+  }
+
+  .Available{
+      background-color: rgb(127, 255, 148);
+      border: 2px solid rgb(64, 255, 96);
+  }
+
+  .Booked{
+    background-color: rgb(255, 0, 0);
+    border: 2px solid rgb(245, 135, 84);
+    color: white;
+  }
+
+  .Disable{
+      background-color: gray;
+      border: 2px solid rgb(116, 115, 115);
+      color: white;
+  }
+
+  .SelectedTable{
+      background-color: rgb(80, 220, 255) !important; 
+      border: 2px solid rgb(0, 204, 255);
+  }
+  
+  .cashtable{
+    background-color: rgb(255, 123, 0);
+    color: white;
+    width: 7rem;
+    height: 3rem;
+  }
+  
+  .kitchentable{
+    background-color: rgb(98, 0, 255);
+    color: white;
+    width: 7rem;
+    height: 3rem;
+  }
+  .washroom{
+    background-color: rgb(0, 89, 255);
+    color: white;
+    width: 7rem;
+    height: 3rem;
+  }
+  
+  .Person2btn{
+
+    margin: 5px 10px;
+    width: 120px;
+
+  }
+  .Person8btn{
+ 
+    margin: 5px 10px;
+    width: 200px;
+  }
+  .Person6btn{
+
+    margin: 5px 10px;
+    width: 150px;
+  }
+  .Person4btn{
+
+    margin: 5px 10px;
+    width: 140px;
+  }
+  
+  

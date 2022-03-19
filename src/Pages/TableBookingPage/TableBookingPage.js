@@ -72,7 +72,8 @@ const TableBookingPage = () => {
                                                                         itemId: cart.itemId,
                                                                         itemName: cart.itemName,
                                                                         itemPrice: cart.itemPrice,
-                                                                    }
+                                                                    },
+                                                                    restaurentID: cartState.restaurentID
                                                                 })}
                                                             />
                                                         </div>
