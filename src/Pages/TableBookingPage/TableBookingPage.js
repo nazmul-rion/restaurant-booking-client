@@ -4,6 +4,7 @@ import trushIcon from '../../Assets/icons/trashIcon.svg'
 import addIcon from '../../Assets/icons/itemAddIcon.svg'
 import minusIcon from '../../Assets/icons/itemMinusIcon.svg'
 import { useNavigate } from 'react-router-dom';
+import RandomTablePicker from '../../Hooks/RandomTablePicker';
 
 const TableBookingPage = () => {
 
@@ -20,6 +21,19 @@ const TableBookingPage = () => {
         setTotalItemCost(total)
 
     }, [cartState])
+
+    const [RandomTables, setRandomTables] = RandomTablePicker(cartState.restaurentID)
+
+    const handleRandomTable = () => {
+
+        const random = RandomTables[Math.floor(Math.random() * RandomTables.length)];
+
+        cartDispatch({
+            type: 'ADD_TABLE_TO_CART',
+            selectedTable: random
+        });
+
+    }
 
 
     return (
@@ -126,7 +140,9 @@ const TableBookingPage = () => {
                             <span><b>Select Table From</b> </span>
                             <button onClick={() => navigate(`/tabletracking/${cartState.restaurentID}`)} className='btn btn-secondary mx-3'><span className=' fw-bold blinker '>Live</span> Table Tracking</button>
                             <span><b>OR</b></span>
-                            <button className='btn btn-secondary mx-3'>Any Random Table</button>
+                            <button
+                                onClick={handleRandomTable}
+                                className='btn btn-secondary mx-3'>Any Random Table</button>
                         </div>
 
                         <div className='my-4'>
