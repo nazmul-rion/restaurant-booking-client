@@ -19,7 +19,7 @@ const TableBookingPage = () => {
         const total = cartState.cartList.map(item => item.ItemToalPrice).reduce((prev, curr) => prev + curr, 0);
 
         setTotalItemCost(total)
-
+        console.log(cartState)
     }, [cartState])
 
     const [RandomTables, setRandomTables] = RandomTablePicker(cartState.restaurentID)
