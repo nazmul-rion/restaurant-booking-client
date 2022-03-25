@@ -76,6 +76,7 @@ const RestaurantDetails = () => {
 
                 {
                     foodList.map(food => {
+
                         return (
                             <div key={food._id} className="foodCard m-3">
                                 <img className='img-fluid' src='https://natashaskitchen.com/wp-content/uploads/2019/04/Best-Burger-4-500x375.jpg' alt="" />
@@ -85,18 +86,24 @@ const RestaurantDetails = () => {
                                     <h5 className='text-success'>৳{food.Price}</h5>
                                 </div>
 
-                                <button className='btn mt-2 w-100'
-                                    onClick={() => cartDispatch({
-                                        type: 'ADD_TO_CART',
+                                {
+                                    food.Availability === "Enable" ?
+                                        (<button className='btn mt-2 w-100'
+                                            onClick={() => cartDispatch({
+                                                type: 'ADD_TO_CART',
 
-                                        item: {
-                                            itemId: food._id,
-                                            itemName: food.FoodName,
-                                            itemPrice: food.Price,
-                                        },
-                                        restaurentID: restaurentID
-                                    })}
-                                >Add to <span className=' fw-bold blinker '>Live</span> Table Booking</button>
+                                                item: {
+                                                    itemId: food._id,
+                                                    itemName: food.FoodName,
+                                                    itemPrice: food.Price,
+                                                },
+                                                restaurentID: restaurentID
+                                            })}
+                                        >Add to <span className=' fw-bold blinker '>Live</span> Table Booking</button>)
+                                        :
+                                        (<button className='btn  bg-danger w-100'>Disabled</button>)
+                                }
+
                             </div>
                         )
                     })

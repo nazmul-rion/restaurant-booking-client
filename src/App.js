@@ -11,8 +11,11 @@ import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import RestaurantDetails from './Pages/RestaurantDetails/RestaurantDetails';
 import RestaurantList from './Pages/RestaurantList/RestaurantList';
 import AllorderList from './Pages/RestaurentAdmin/Outlet/AllorderList';
-import MyRestaurant from './Pages/RestaurentAdmin/Outlet/MyRestaurant/MyRestaurant';
+import MenuEdit from './Pages/RestaurentAdmin/Outlet/MenuEdit';
+import MyRestaurant from './Pages/RestaurentAdmin/Outlet/MyRestaurant';
 import SingleOrderDetails from './Pages/RestaurentAdmin/Outlet/SingleOrderDetails';
+import TableInfoEdit from './Pages/RestaurentAdmin/Outlet/TableInfoEdit';
+import TableTrackingEdit from './Pages/RestaurentAdmin/Outlet/TableTrackingEdit';
 
 import RestaurantDasboard from './Pages/RestaurentAdmin/RestaurantDasboard';
 import TableBookingPage from './Pages/TableBookingPage/TableBookingPage';
@@ -45,8 +48,9 @@ function App() {
           <Route path="/restaurantadminpage/:restaurantID" element={<RestaurantDasboard />} >
             <Route path="allorders" element={<AllorderList />} />
             <Route path="allorders/:orderID" element={<SingleOrderDetails />} />
-            {/* <Route path="allmenu" element={<AddRestaurent />} />
-            <Route path="alltable" element={<AddRestaurent />} /> */}
+            <Route path="allmenu" element={<MenuEdit />} />
+            <Route path="alltable" element={<TableTrackingEdit />} />
+            <Route path="edittable" element={<TableInfoEdit />} />
           </Route>
 
 

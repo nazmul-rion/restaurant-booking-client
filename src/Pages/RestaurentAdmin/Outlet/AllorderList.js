@@ -1,11 +1,11 @@
 import React from 'react'
-import { Navigate, NavLink, useLocation, useParams } from 'react-router-dom';
+import { Navigate, NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
 import OrderListApi from '../../../Hooks/OrderListApi'
 
 const AllorderList = () => {
 
     const location = useLocation();
-
+    const navigate = useNavigate();
     const { restaurantID } = location.state;
 
     const [orderList, setOrderList] = OrderListApi(restaurantID)
@@ -21,12 +21,16 @@ const AllorderList = () => {
                 {
                     orderList.map(order => {
                         return (
-                            <NavLink to={`${order._id}`} key={order._id} className="restaurentContainer my-3" >
+                            <div key={order._id}
+                                onClick={() => navigate(`${order._id}`)}
+                                className="restaurentContainer my-3">
+
                                 <h4>Order ID: {order._id}</h4>
 
                                 <h6><b>Customer Name:</b> {order.CustomerName}</h6>
 
-                            </NavLink>
+
+                            </div>
                         )
                     })
                 }

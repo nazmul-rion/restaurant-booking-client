@@ -19,6 +19,8 @@ const RestaurantDasboard = () => {
 
                 <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to='alltable' replace state={{ restaurantID: restaurantID }}><span className=' fw-bold blinker '>Live</span> Table Tracking</NavLink>
 
+                <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to='edittable' replace state={{ restaurantID: restaurantID }}>Edit Table Info</NavLink>
+
             </div>
 
             <Outlet />
