@@ -1,15 +1,22 @@
 import React from 'react'
 import { NavLink, Outlet, useParams, Navigate } from 'react-router-dom'
+import SingleRestaurantApi from '../../Hooks/SingleRestaurantApi';
 
 const RestaurantDasboard = () => {
     const { restaurantID } = useParams();
+    const [Singlerestaurant, setSingleRestaurant] = SingleRestaurantApi(restaurantID)
     return (
         <div>
-            <h3 className="text-center">Restaurant Owner Panel</h3>
+            <h4 className="text-center">Restaurant Owner Panel</h4>
+            <h3 className="text-center">{Singlerestaurant?.RestaurantName}</h3>
             <hr />
 
             <div className="d-flex justify-content-start align-items-center">
 
+
+                <NavLink className="btn deactive"
+                    to="/restaurantadminpage" replace state={{ restaurantID: restaurantID }}
+                >My Restaurant List</NavLink>
 
                 <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")}
                     to="allorders" replace state={{ restaurantID: restaurantID }}

@@ -196,9 +196,8 @@ const MenuEdit = () => {
                                     <input placeholder='Enter Food Name' className='form-control my-3'  {...register("FoodName", { required: true })} />
                                     {errors.FoodName && <span>This field is required</span>}
 
-                                    <input placeholder='Price' className='form-control my-3' {...register("Price", { required: true })} />
+                                    <input placeholder='Price' className='form-control my-3'  {...register("Price", { required: true, valueAsNumber: true })} />
                                     {errors.Price && <span>This field is required</span>}
-
 
 
                                     <select className='form-control' {...register("FoodCategory", { required: true })} >
