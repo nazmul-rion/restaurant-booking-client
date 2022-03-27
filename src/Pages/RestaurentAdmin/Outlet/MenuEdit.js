@@ -199,6 +199,9 @@ const MenuEdit = () => {
                                     <input placeholder='Price' className='form-control my-3'  {...register("Price", { required: true, valueAsNumber: true })} />
                                     {errors.Price && <span>This field is required</span>}
 
+                                    <input placeholder='Item Image' className='form-control my-3'  {...register("foodImage")} />
+
+
 
                                     <select className='form-control' {...register("FoodCategory", { required: true })} >
 
@@ -258,7 +261,9 @@ const MenuEdit = () => {
                     foodList.map(food => {
                         return (
                             <div key={food._id} className="foodCard m-3">
-                                <img className='img-fluid' src='https://natashaskitchen.com/wp-content/uploads/2019/04/Best-Burger-4-500x375.jpg' alt="" />
+                                <div className='d-flex justify-content-center'>
+                                    <img className='img-fluid ' src={food.foodImage} alt="" />
+                                </div>
 
                                 <div className="d-flex justify-content-between align-items-center px-2">
                                     <div>

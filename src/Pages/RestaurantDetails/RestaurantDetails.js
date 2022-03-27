@@ -79,7 +79,9 @@ const RestaurantDetails = () => {
 
                         return (
                             <div key={food._id} className="foodCard m-3">
-                                <img className='img-fluid' src='https://natashaskitchen.com/wp-content/uploads/2019/04/Best-Burger-4-500x375.jpg' alt="" />
+                                <div className='d-flex justify-content-center'>
+                                    <img className='img-fluid ' src={food.foodImage} alt="" />
+                                </div>
 
                                 <div className="d-flex justify-content-between align-items-center px-2">
                                     <h5 className=''>{food.FoodName}</h5>
