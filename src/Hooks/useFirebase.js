@@ -29,12 +29,21 @@ const useFirebase = () => {
 
                 if (data.admin === "admin") {
                     setAdmin(true);
+                    setRestaurentAdmin(false);
                     console.log(admin, user.email)
                     setLoading(false);
                 }
                 else if (data.admin === "restaurentadmin") {
                     setRestaurentAdmin(true);
+                    setAdmin(false);
                     console.log(restaurentadmin, user.email)
+                    setLoading(false);
+
+                }
+
+                else {
+                    setAdmin(false);
+                    setRestaurentAdmin(false);
                     setLoading(false);
                 }
             })

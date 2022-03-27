@@ -1,13 +1,15 @@
 import React from 'react'
 import './NavigationBar.css'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { NavLink, useNavigate } from 'react-router-dom'
 import cartIcon from '../../Assets/icons/cartIcon.svg'
 import useCart from '../../Context/CartManagement/useCart'
+import useAuth from '../../Hooks/useAuth'
 
 function NavigationBar() {
 
     const { cartState, cartDispatch } = useCart();
+    const { user, signOutUser } = useAuth();
     let navigate = useNavigate();
 
 
@@ -27,6 +29,22 @@ function NavigationBar() {
                     </NavLink>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
+
+                        <NavLink className={(navInfo) => (navInfo.isActive ? "m-2 btn active" : "m-2 btn deactive")} to="/dashboard">DashBoard</NavLink>
+
+                        {user.displayName ? (
+                            <>
+                                <Navbar.Text>
+                                    <img className="rounded rounded-circle" height="40" width="40" src="https://i.ibb.co/L9TLhbm/Avater.jpg" alt="N/A" />
+                                    <Button variant="danger" onClick={signOutUser}>Sign Out</Button>{' '}
+                                </Navbar.Text>
+                            </>
+                        ) : (
+                            <>
+                                <Button variant="info" onClick={() => navigate('/login')} >Login</Button>
+                            </>)
+                        }
+
                         <Nav className="ms-auto align-items-center">
 
 

@@ -24,6 +24,9 @@ import TableTrackingPage from './Pages/TableTrackingPage/TableTrackingPage';
 import RestaurantAdminRoute from './Routes/RestaurantAdminRoute';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
+import PrivateRoute from './Routes/PrivateRoute';
+import UserDashBoard from './Pages/UserDashBoard/UserDashBoard';
+
 
 function App() {
   return (
@@ -44,6 +47,10 @@ function App() {
             <Route path="/tablebooking" element={<><NavigationBar /><TableBookingPage /> <FooterPart /></>} />
 
             <Route path="/tabletracking/:restaurentID" element={<><NavigationBar /><TableTrackingPage /> <FooterPart /></>} />
+
+            <Route path="/dashboard" element={<PrivateRoute></PrivateRoute>} />
+            <Route path="/userdashboard" element={<><NavigationBar /><UserDashBoard /> <FooterPart /></>} />
+            <Route path="/userdashboard/:orderID" element={<><NavigationBar /><SingleOrderDetails /> <FooterPart /></>} />
 
             <Route path="/login" element={<><NavigationBar /><LoginPage /> <FooterPart /></>} />
             <Route path="/register" element={<><NavigationBar /><RegisterPage /> <FooterPart /></>} />

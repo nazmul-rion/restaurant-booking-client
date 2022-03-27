@@ -3,9 +3,29 @@ import { Navigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 const PrivateRoute = ({ children }) => {
-    const { user } = useAuth();
+    const { user, admin, restaurentadmin, loading } = useAuth();
+    if (loading) {
+        return <div className="">
+            Loading
+        </div>
+    }
 
-    return (user.email) ? children : <Navigate to="/login" />;
+    if (!user.email) {
+        return <Navigate to="/login" />;
+    }
+
+    else if (user.email && admin) {
+        return <Navigate to="/adminpage" />;
+    }
+    else if (user.email && restaurentadmin) {
+        return <Navigate to="/restaurantadminpage" />;
+    }
+    else {
+        return <Navigate to="/userdashboard" />;
+    }
+
+
+
 }
 
 export default PrivateRoute

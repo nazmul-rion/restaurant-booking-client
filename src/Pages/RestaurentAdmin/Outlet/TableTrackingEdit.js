@@ -105,10 +105,9 @@ const TableTrackingEdit = () => {
 
                                                 {
                                                     tableinfos.Availity === "Booked" ?
-                                                        <Countdown date={Date.parse(tableinfos.BookedDate)}
+                                                        <Countdown date={(parseFloat(tableinfos.BookedDate))}
                                                             renderer={({ hours, minutes, seconds }) => { return <span>{hours}h {minutes}m {seconds}s</span>; }}
                                                         /> : ""
-
 
                                                 }
                                                 <div>

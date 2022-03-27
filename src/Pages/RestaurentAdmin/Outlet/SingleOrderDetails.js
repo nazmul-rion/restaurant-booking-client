@@ -9,7 +9,7 @@ const SingleOrderDetails = () => {
         <div className='container'>
             <h5 className='mt-3'><b>Customer Name:</b> {singleOrder.CustomerName}</h5>
             <h5 className='mt-3'><b>Booked Table:</b> {singleOrder.OrderTable}</h5>
-            <h5 className='mt-3'><b>Order Date:</b> {singleOrder.OrderDate?.slice(0, 10)} ({singleOrder.OrderDate?.slice(11, 19)})</h5>
+            <h5 className='mt-3'><b>Order Date:</b> {(new Date(singleOrder.OrderDate)).toString()}</h5>
 
             <table className='table table-striped my-3'>
                 <thead>
