@@ -5,7 +5,6 @@ import addIcon from '../../Assets/icons/itemAddIcon.svg'
 import minusIcon from '../../Assets/icons/itemMinusIcon.svg'
 import { useNavigate } from 'react-router-dom';
 import RandomTablePicker from '../../Hooks/RandomTablePicker';
-import BkashButton from 'react-bkash';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import axios from 'axios';
@@ -41,7 +40,7 @@ const TableBookingPage = () => {
 
     }
 
-    const handlePayment = () => {
+    const handlePayment = async () => {
 
         let order = {
             CustomerName: user.displayName,
@@ -52,8 +51,6 @@ const TableBookingPage = () => {
             OrderedFood: cartState.cartList
         };
 
-        console.log(order)
-
         Swal.fire({
             title: 'Are you sure you want to order this Foods?',
             showDenyButton: true,
@@ -63,67 +60,65 @@ const TableBookingPage = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    axios.post('http://localhost:7000/addorder', order)
-                        .then(res => {
-                            if (res.data.insertedId) {
 
-                                Swal.fire({
-                                    title: "Wow",
-                                    text: "Order placed",
-                                    icon: "success",
-
-                                });
-
-                            }
-                            else {
-                                Swal.fire("Sorry!", "Some Error occure", "error");
-                            }
-                        });
-
-                    let i = 0; let j = 0;
-                    let foundTableIndex = 0;
-                    let foundTableInfoIndex = 0;
-                    let flag = 0;
-
-
-
-                    TableInformation.Tables.map(tableRow => {
-                        j = 0;
-                        tableRow.TableInfo.map(tableinfos => {
-
-                            //console.log(tableinfos.TableID)
-                            if (tableinfos.TableID === order.OrderTable) {
-
-                                foundTableInfoIndex = j;
-                                flag = 1;
-                            }
-                            else j++;
-                        })
-
-                        if (flag === 1)
-                            foundTableIndex = i;
-                        i++;
-                        flag = 0;
-                    })
-
-                    let q1 = `Tables.${foundTableIndex}.TableInfo.${foundTableInfoIndex}.Availity`;
-                    let q2 = `Tables.${foundTableIndex}.TableInfo.${foundTableInfoIndex}.BookedDate`;
-
-                    fetch(`http://localhost:7000/tablebooking/${order.RestaurantID}/${(order.OrderDate + 3600000)}/${q1}/${q2}`, {
-                        method: 'PUT',
+                    fetch(`http://localhost:7000/ssl-request/${TotalItemCost}`, {
+                        method: 'POST',
                         headers: {
-                            'content-type': 'application/json'
+                            "content-type": "application/json"
                         },
-
+                        body: JSON.stringify(order)
                     })
                         .then(res => res.json())
                         .then(data => {
                             console.log(data);
-                            if (data.modifiedCount) {
-                                Swal.fire('Done')
-
-                            }
+                            window.location.replace(data)
                         })
+
+
+                    // let i = 0; let j = 0;
+                    // let foundTableIndex = 0;
+                    // let foundTableInfoIndex = 0;
+                    // let flag = 0;
+
+
+
+                    // TableInformation.Tables.map(tableRow => {
+                    //     j = 0;
+                    //     tableRow.TableInfo.map(tableinfos => {
+
+                    //         //console.log(tableinfos.TableID)
+                    //         if (tableinfos.TableID === order.OrderTable) {
+
+                    //             foundTableInfoIndex = j;
+                    //             flag = 1;
+                    //         }
+                    //         else j++;
+                    //     })
+
+                    //     if (flag === 1)
+                    //         foundTableIndex = i;
+                    //     i++;
+                    //     flag = 0;
+                    // })
+
+                    // let q1 = `Tables.${foundTableIndex}.TableInfo.${foundTableInfoIndex}.Availity`;
+                    // let q2 = `Tables.${foundTableIndex}.TableInfo.${foundTableInfoIndex}.BookedDate`;
+
+                    // fetch(`http://localhost:7000/tablebooking/${order.RestaurantID}/${(order.OrderDate + 3600000)}/${q1}/${q2}`, {
+                    //     method: 'PUT',
+                    //     headers: {
+                    //         'content-type': 'application/json'
+                    //     },
+
+                    // })
+                    //     .then(res => res.json())
+                    //     .then(data => {
+                    //         console.log(data);
+                    //         if (data.modifiedCount) {
+                    //             Swal.fire('Done')
+
+                    //         }
+                    //     })
 
 
 

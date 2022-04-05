@@ -24,8 +24,9 @@ import TableTrackingPage from './Pages/TableTrackingPage/TableTrackingPage';
 import RestaurantAdminRoute from './Routes/RestaurantAdminRoute';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
-import PrivateRoute from './Routes/PrivateRoute';
 import UserDashBoard from './Pages/UserDashBoard/UserDashBoard';
+import DashBoardRoute from './Routes/DashBoardRoute';
+import PrivateRoute from './Routes/PrivateRoute';
 
 
 function App() {
@@ -44,11 +45,11 @@ function App() {
 
             <Route path="/menu/:restaurentID" element={<><NavigationBar /><RestaurantDetails /> <FooterPart /></>} />
 
-            <Route path="/tablebooking" element={<><NavigationBar /><TableBookingPage /> <FooterPart /></>} />
+            <Route path="/tablebooking" element={<><PrivateRoute><NavigationBar /><TableBookingPage /> <FooterPart /></PrivateRoute></>} />
 
             <Route path="/tabletracking/:restaurentID" element={<><NavigationBar /><TableTrackingPage /> <FooterPart /></>} />
 
-            <Route path="/dashboard" element={<PrivateRoute></PrivateRoute>} />
+            <Route path="/dashboard" element={<DashBoardRoute></DashBoardRoute>} />
             <Route path="/userdashboard" element={<><NavigationBar /><UserDashBoard /> <FooterPart /></>} />
             <Route path="/userdashboard/:orderID" element={<><NavigationBar /><SingleOrderDetails /> <FooterPart /></>} />
 

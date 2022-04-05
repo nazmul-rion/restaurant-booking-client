@@ -1,4 +1,5 @@
 import React from 'react'
+import Countdown from 'react-countdown';
 import { useParams } from 'react-router-dom'
 import SingleOrderDetailsApi from '../../../Hooks/SingleOrderDetailsApi';
 
@@ -9,7 +10,13 @@ const SingleOrderDetails = () => {
         <div className='container'>
             <h5 className='mt-3'><b>Customer Name:</b> {singleOrder.CustomerName}</h5>
             <h5 className='mt-3'><b>Booked Table:</b> {singleOrder.OrderTable}</h5>
-            <h5 className='mt-3'><b>Order Date:</b> {(new Date(singleOrder.OrderDate)).toString()}</h5>
+            <h5 className='mt-3'><b>Order Date: </b> {(new Date(singleOrder.OrderDate)).toString()}</h5>
+            <h5 className='mt-3'><b>Time Left:</b>
+                <Countdown date={(parseFloat(singleOrder.OrderDate + 3600000))}
+                    renderer={({ hours, minutes, seconds }) => { return <span>{hours}h {minutes}m {seconds}s</span>; }}
+                />
+
+            </h5>
 
             <table className='table table-striped my-3'>
                 <thead>

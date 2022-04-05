@@ -10,20 +10,7 @@ const PrivateRoute = ({ children }) => {
         </div>
     }
 
-    if (!user.email) {
-        return <Navigate to="/login" />;
-    }
-
-    else if (user.email && admin) {
-        return <Navigate to="/adminpage" />;
-    }
-    else if (user.email && restaurentadmin) {
-        return <Navigate to="/restaurantadminpage" />;
-    }
-    else {
-        return <Navigate to="/userdashboard" />;
-    }
-
+    return (user.email) ? children : <Navigate to="/login" />;
 
 
 }
