@@ -12,9 +12,11 @@ const SingleOrderDetails = () => {
             <h5 className='mt-3'><b>Booked Table:</b> {singleOrder.OrderTable}</h5>
             <h5 className='mt-3'><b>Order Date: </b> {(new Date(singleOrder.OrderDate)).toString()}</h5>
             <h5 className='mt-3'><b>Time Left:</b>
-                <Countdown date={(parseFloat(singleOrder.OrderDate + 3600000))}
-                    renderer={({ hours, minutes, seconds }) => { return <span>{hours}h {minutes}m {seconds}s</span>; }}
-                />
+                {
+                    singleOrder.OrderDate && <Countdown date={singleOrder.OrderDate + 3600000}
+                        renderer={({ hours, minutes, seconds }) => { return <span>{hours}h {minutes}m {seconds}s</span>; }}
+                    />
+                }
 
             </h5>
 

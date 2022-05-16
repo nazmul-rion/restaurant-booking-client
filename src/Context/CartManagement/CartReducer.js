@@ -1,7 +1,8 @@
 
 const addProductToCart = (state, item, resId) => {
+    let copyCartList = [];
+    state.restaurentID === resId ? copyCartList = [...state.cartList] : copyCartList = [];
     state.restaurentID = resId;
-    const copyCartList = [...state.cartList];
     const curItemIndex = copyCartList.findIndex((i) => i.itemId === item.itemId);
 
     if (curItemIndex < 0) {

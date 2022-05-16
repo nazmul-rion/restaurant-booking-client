@@ -26,7 +26,7 @@ import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
 import UserDashBoard from './Pages/UserDashBoard/UserDashBoard';
 import DashBoardRoute from './Routes/DashBoardRoute';
-import PrivateRoute from './Routes/PrivateRoute';
+import CustomerRoute from './Routes/CustomerRoute';
 
 
 function App() {
@@ -45,13 +45,14 @@ function App() {
 
             <Route path="/menu/:restaurentID" element={<><NavigationBar /><RestaurantDetails /> <FooterPart /></>} />
 
-            <Route path="/tablebooking" element={<><PrivateRoute><NavigationBar /><TableBookingPage /> <FooterPart /></PrivateRoute></>} />
+            <Route path="/tablebooking" element={<><CustomerRoute><NavigationBar /><TableBookingPage /> <FooterPart /></CustomerRoute></>} />
 
             <Route path="/tabletracking/:restaurentID" element={<><NavigationBar /><TableTrackingPage /> <FooterPart /></>} />
 
             <Route path="/dashboard" element={<DashBoardRoute></DashBoardRoute>} />
-            <Route path="/userdashboard" element={<><NavigationBar /><UserDashBoard /> <FooterPart /></>} />
-            <Route path="/userdashboard/:orderID" element={<><NavigationBar /><SingleOrderDetails /> <FooterPart /></>} />
+
+            <Route path="/userdashboard" element={<><CustomerRoute><NavigationBar /><UserDashBoard /> <FooterPart /></CustomerRoute></>} />
+            <Route path="/userdashboard/:orderID" element={<><CustomerRoute><NavigationBar /><SingleOrderDetails /> <FooterPart /></CustomerRoute></>} />
 
             <Route path="/login" element={<><NavigationBar /><LoginPage /> <FooterPart /></>} />
             <Route path="/register" element={<><NavigationBar /><RegisterPage /> <FooterPart /></>} />

@@ -11,6 +11,7 @@ initializeAuthentication()
 const useFirebase = () => {
     const [admin, setAdmin] = useState(false);
     const [restaurentadmin, setRestaurentAdmin] = useState(false);
+    const [customer, setCustomer] = useState(false);
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
@@ -18,8 +19,6 @@ const useFirebase = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const redirectUrl = location.state?.from || '/';
-
-
 
     useEffect(() => {
         setLoading(true);
@@ -30,21 +29,25 @@ const useFirebase = () => {
                 if (data.admin === "admin") {
                     setAdmin(true);
                     setRestaurentAdmin(false);
-                    console.log(admin, user.email)
+                    setCustomer(false);
                     setLoading(false);
+                    navigate(redirectUrl)
                 }
                 else if (data.admin === "restaurentadmin") {
                     setRestaurentAdmin(true);
                     setAdmin(false);
-                    console.log(restaurentadmin, user.email)
+                    setCustomer(false);
                     setLoading(false);
+                    navigate(redirectUrl)
 
                 }
 
                 else {
+                    setCustomer(true);
                     setAdmin(false);
                     setRestaurentAdmin(false);
                     setLoading(false);
+                    navigate(redirectUrl)
                 }
             })
 
@@ -139,6 +142,7 @@ const useFirebase = () => {
         user,
         admin,
         restaurentadmin,
+        customer,
         error,
         loading,
         signUpUser,
