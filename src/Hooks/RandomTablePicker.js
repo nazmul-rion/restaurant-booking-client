@@ -6,7 +6,7 @@ const RandomTablePicker = (restaurentID) => {
     const [RandomTables, setRandomTables] = useState([]);
     useEffect(() => {
         let isMounted = true;
-        fetch(`http://localhost:7000/alltables/checkability/${restaurentID}`)
+        fetch(`https://restaurant-booking-server.onrender.com/alltables/checkability/${restaurentID}`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted) {

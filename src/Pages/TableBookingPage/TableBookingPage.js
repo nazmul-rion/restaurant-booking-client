@@ -61,7 +61,7 @@ const TableBookingPage = () => {
             .then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch(`http://localhost:7000/ssl-request/${TotalItemCost}`, {
+                    fetch(`https://restaurant-booking-server.onrender.com/ssl-request/${TotalItemCost}`, {
                         method: 'POST',
                         headers: {
                             "content-type": "application/json"
@@ -104,7 +104,7 @@ const TableBookingPage = () => {
                     // let q1 = `Tables.${foundTableIndex}.TableInfo.${foundTableInfoIndex}.Availity`;
                     // let q2 = `Tables.${foundTableIndex}.TableInfo.${foundTableInfoIndex}.BookedDate`;
 
-                    // fetch(`http://localhost:7000/tablebooking/${order.RestaurantID}/${(order.OrderDate + 3600000)}/${q1}/${q2}`, {
+                    // fetch(`https://restaurant-booking-server.onrender.com/tablebooking/${order.RestaurantID}/${(order.OrderDate + 3600000)}/${q1}/${q2}`, {
                     //     method: 'PUT',
                     //     headers: {
                     //         'content-type': 'application/json'

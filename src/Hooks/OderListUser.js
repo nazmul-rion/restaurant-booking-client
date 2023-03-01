@@ -6,7 +6,7 @@ const OrderListUserApi = (userEmail) => {
 
     useEffect(() => {
         let isMounted = true;
-        fetch(`http://localhost:7000/alluserorders/${userEmail}`)
+        fetch(`https://restaurant-booking-server.onrender.com/alluserorders/${userEmail}`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted) {

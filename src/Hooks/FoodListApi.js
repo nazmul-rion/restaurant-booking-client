@@ -6,7 +6,7 @@ const FoodListApi = (restaurentID, foodCategory) => {
 
     useEffect(() => {
         let isMounted = true;
-        fetch(`http://localhost:7000/allfoods/${restaurentID}/${foodCategory}`)
+        fetch(`https://restaurant-booking-server.onrender.com/allfoods/${restaurentID}/${foodCategory}`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted) {

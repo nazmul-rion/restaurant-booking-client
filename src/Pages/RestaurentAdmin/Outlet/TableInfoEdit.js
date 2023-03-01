@@ -17,7 +17,7 @@ const TableInfoEdit = () => {
 
     const handleUploadTableDesign = () => {
 
-        fetch(`http://localhost:7000/addtablelayout/${restaurantID}`, {
+        fetch(`https://restaurant-booking-server.onrender.com/addtablelayout/${restaurantID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

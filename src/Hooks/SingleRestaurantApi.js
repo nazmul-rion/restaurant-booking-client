@@ -6,7 +6,7 @@ const SingleRestaurantApi = (id) => {
 
     useEffect(() => {
         let isMounted = true;
-        fetch(`http://localhost:7000/allrestaurants/${id}`)
+        fetch(`https://restaurant-booking-server.onrender.com/allrestaurants/${id}`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted) {

@@ -6,7 +6,7 @@ const SingleOrderDetailsApi = (orderID) => {
 
     useEffect(() => {
         let isMounted = true;
-        fetch(`http://localhost:7000/singleorder/${orderID}`)
+        fetch(`https://restaurant-booking-server.onrender.com/singleorder/${orderID}`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted) {

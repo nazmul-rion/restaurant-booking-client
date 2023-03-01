@@ -9,7 +9,7 @@ const MyRestaurant = () => {
     const { user, signOutUser } = useAuth();
     useEffect(() => {
         let isMounted = true;
-        fetch(`http://localhost:7000/allrestaurantsbyemail/${user.email}`)
+        fetch(`https://restaurant-booking-server.onrender.com/allrestaurantsbyemail/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted) {

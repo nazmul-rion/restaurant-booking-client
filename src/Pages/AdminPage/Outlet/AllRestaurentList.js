@@ -7,7 +7,7 @@ const AllRestaurentList = () => {
     const [restaurantList, setRestaurantList] = RestaurantListApi({ searchInput: "", searchCity: "", searchZone: "" });
 
     const handleDeleteOrder = id => {
-        const url = `http://localhost:7000/allrestaurants/${id}`;
+        const url = `https://restaurant-booking-server.onrender.com/allrestaurants/${id}`;
 
         swal("Are you sure you want Cancel this Order?", {
             buttons: ["No", "Yes"],

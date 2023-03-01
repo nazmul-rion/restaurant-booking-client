@@ -31,7 +31,7 @@ const MenuEdit = () => {
     }
 
     const handleDeleteCategory = id => {
-        const url = `http://localhost:7000/allfoodcategories/${id}`;
+        const url = `https://restaurant-booking-server.onrender.com/allfoodcategories/${id}`;
 
         swal("Are you sure you want Delete this Category?", {
             buttons: ["No", "Yes"],
@@ -57,7 +57,7 @@ const MenuEdit = () => {
     }
 
     const handleDeleteFood = id => {
-        const url = `http://localhost:7000/allfoods/${id}`;
+        const url = `https://restaurant-booking-server.onrender.com/allfoods/${id}`;
 
         swal("Are you sure you want Delete this Item?", {
             buttons: ["No", "Yes"],
@@ -91,7 +91,7 @@ const MenuEdit = () => {
             confirmButtonText: 'Insert',
             showLoaderOnConfirm: true,
             preConfirm: async (FoodCategoryName) => {
-                const res = await axios.post('http://localhost:7000/addfoodcategory', { RestaurantID: restaurantID, FoodCategoryName: FoodCategoryName });
+                const res = await axios.post('https://restaurant-booking-server.onrender.com/addfoodcategory', { RestaurantID: restaurantID, FoodCategoryName: FoodCategoryName });
                 if (res.data.insertedId) {
                     Swal.fire({
                         title: "Wow",
@@ -118,7 +118,7 @@ const MenuEdit = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    axios.post('http://localhost:7000/addfood', data)
+                    axios.post('https://restaurant-booking-server.onrender.com/addfood', data)
                         .then(res => {
                             if (res.data.insertedId) {
                                 Swal.fire({
@@ -147,7 +147,7 @@ const MenuEdit = () => {
         let chngAvailability = "";
         Availability === "Enable" ? chngAvailability = "Disable" : chngAvailability = "Enable";
 
-        fetch(`http://localhost:7000/addFood/${chngAvailability}/${foodID}`, {
+        fetch(`https://restaurant-booking-server.onrender.com/addFood/${chngAvailability}/${foodID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

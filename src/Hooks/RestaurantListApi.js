@@ -6,7 +6,7 @@ const RestaurantListApi = (qry) => {
 
     useEffect(() => {
         let isMounted = true;
-        fetch(`http://localhost:7000/allrestaurants?searchInput=${qry.searchInput}&&searchCity=${qry.searchCity}&&searchZone=${qry.searchZone}`)
+        fetch(`https://restaurant-booking-server.onrender.com/allrestaurants?searchInput=${qry.searchInput}&&searchCity=${qry.searchCity}&&searchZone=${qry.searchZone}`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted) {

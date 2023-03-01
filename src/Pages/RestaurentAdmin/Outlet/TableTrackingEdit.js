@@ -41,7 +41,7 @@ const TableTrackingEdit = () => {
 
         let qryName = `Tables.${foundTableIndex}.TableInfo.${foundTableInfoIndex}.Availity`;
 
-        fetch(`http://localhost:7000/alltables/${restaurantID}/${qryName}/${ability}`, {
+        fetch(`https://restaurant-booking-server.onrender.com/alltables/${restaurantID}/${qryName}/${ability}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

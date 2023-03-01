@@ -17,7 +17,7 @@ const AddRestaurent = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    axios.post('http://localhost:7000/addrestaurent', data)
+                    axios.post('https://restaurant-booking-server.onrender.com/addrestaurent', data)
                         .then(res => {
                             if (res.data.insertedId) {
                                 Swal.fire({

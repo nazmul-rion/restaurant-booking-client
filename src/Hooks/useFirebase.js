@@ -22,7 +22,7 @@ const useFirebase = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:7000/users/${user.email}`)
+        fetch(`https://restaurant-booking-server.onrender.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
 
@@ -71,7 +71,7 @@ const useFirebase = () => {
     const saveUser = (email, displayName, photoURL, method) => {
         const user = { UserEmail: email, UserName: displayName, photoURL };
 
-        fetch('http://localhost:7000/adduser', {
+        fetch('https://restaurant-booking-server.onrender.com/adduser', {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

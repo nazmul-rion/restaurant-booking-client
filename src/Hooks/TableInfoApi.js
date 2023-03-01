@@ -6,7 +6,7 @@ const TableInfoApi = (restaurentID) => {
     const [TableInformation, setTableInformation] = useState([]);
     useEffect(() => {
         let isMounted = true;
-        fetch(`http://localhost:7000/alltables/${restaurentID}`)
+        fetch(`https://restaurant-booking-server.onrender.com/alltables/${restaurentID}`)
             .then(res => res.json())
             .then(data => {
                 if (isMounted) {
